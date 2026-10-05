@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI Prasejarah & Periodisasi Zaman Batu - MA Fase E Gorontalo</title>
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --bg-card: #141b2d;
+            --bg-card-hover: #1e2942;
+            --accent-gold: #f59e0b;
+            --accent-gold-light: #fbbf24;
+            --accent-gold-dark: #b45309;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-gold: rgba(245, 158, 11, 0.25);
+            --border-glow: 0 0 15px rgba(245, 158, 11, 0.2);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.05) 0%, transparent 40%);
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            background: rgba(20, 27, 45, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: var(--border-glow);
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffffff, var(--accent-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-text p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .stat-badge {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--border-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-gold-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            flex: 1;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        sidebar {
+            background: rgba(15, 23, 42, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-main);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05));
+            color: var(--accent-gold-light);
+            border: 1px solid var(--border-gold);
+            box-shadow: var(--border-glow);
+        }
+
+        .nav-icon {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        main {
+            padding: 24px;
+            overflow-y: auto;
+            max-height: calc(100vh - 67px);
+        }
+
+        .view-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-gold-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* FORM INPUT STYLES */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--accent-gold-light);
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-gold-light);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        /* BUTTONS */
+        .btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #000;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold-light);
+        }
+
+        .btn-outline:hover {
+            background: rgba(245, 158, 11, 0.1);
+            color: #fff;
+        }
+
+        .btn:disabled, .btn-outline:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .timeline-control {
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--accent-gold-light);
+            margin-bottom: 10px;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #1e293b;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--accent-gold);
+            transition: transform 0.1s;
+        }
+
+        .visualizer-box {
+            background: #0d1322;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .artifact-svg-container {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
+            transition: var(--transition);
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quiz-option:hover {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: var(--accent-gold);
+        }
+
+        .quiz-option.selected {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold-light);
+        }
+
+        .quiz-option.correct {
+            background: rgba(34, 197, 94, 0.2) !important;
+            border-color: #22c55e !important;
+            color: #4ade80 !important;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(239, 68, 68, 0.2) !important;
+            border-color: #ef4444 !important;
+            color: #fca5a5 !important;
+        }
+
+        .feedback-box {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .feedback-box.show {
+            display: block;
+        }
+
+        .feedback-box.correct-bg {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+        }
+
+        .feedback-box.incorrect-bg {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+
+        .local-badge {
+            background: linear-gradient(90deg, #059669, #10b981);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-container {
+            background: linear-gradient(90deg, rgba(20, 27, 45, 0.95), rgba(245, 158, 11, 0.15), rgba(20, 27, 45, 0.95));
+            border-bottom: 1px solid var(--border-gold);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-badge {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 15px;
+            margin-right: 10px;
+            z-index: 2;
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 28s linear infinite;
+            color: var(--accent-gold-light);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        .dev-profile-card {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-gold);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+        }
+
+        .dev-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            box-shadow: var(--border-glow);
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold-light);
+        }
+
+        .dev-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .dev-info h3 { font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+        .dev-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 6px; }
+
+        .dev-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .ref-list { list-style: none; padding: 0; }
+        .ref-list li {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .ref-list li::before { content: "📚"; font-size: 1rem; }
+
+        .sync-status {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .purba-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .purba-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            display: flex;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .purba-card:hover {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transform: translateY(-3px);
+        }
+
+        .purba-img-container {
+            width: 320px;
+            flex-shrink: 0;
+            background: #050810;
+            position: relative;
+            border-right: 1px solid var(--border-gold);
+            overflow: hidden;
+        }
+
+        .purba-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0.85;
+            transition: transform 0.5s ease;
+        }
+
+        .purba-card:hover .purba-img-container img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .purba-img-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            padding: 8px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .purba-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .purba-title-wrapper h3 {
+            color: var(--accent-gold-light);
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .purba-subtitle {
+            color: #34d399;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .purba-meta {
+            background: rgba(255,255,255,0.03);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-gold);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .purba-meta strong {
+            color: #fff;
+        }
+
+        .purba-desc {
+            line-height: 1.7;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            text-align: justify;
+        }
+
+        .purba-traits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: auto;
+        }
+
+        .trait-box {
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .trait-box h4 {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .trait-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+            sidebar { flex-direction: row; overflow-x: auto; padding: 10px; }
+            .nav-item { white-space: nowrap; }
+            main { max-height: none; padding: 16px; }
+            .dev-profile-card { flex-direction: column; text-align: center; }
+        }
+
+        .cover-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(20, 27, 45, 0.9) 0%, transparent 50%),
+                radial-gradient(circle at 90% 20%, rgba(217, 119, 6, 0.12) 0%, transparent 50%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+        }
+
+        .cover-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cover-card {
+            background: rgba(20, 27, 45, 0.95);
+            border: 1px solid var(--border-gold);
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(245, 158, 11, 0.25);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+            animation: zoomIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .cover-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), transparent);
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .cover-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .cover-dev-box {
+            background: rgba(10, 14, 23, 0.7);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+            text-align: left;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .cover-dev-photo-wrap {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-gold-light);
+            box-shadow: var(--border-glow);
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+        }
+
+        .cover-dev-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cover-dev-info span {
+            color: var(--accent-gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .cover-dev-info h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .cover-dev-info p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 4px;
+        }
+
+        .cover-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            border-radius: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .cover-card { padding: 28px 20px; }
+            .cover-title { font-size: 1.4rem; }
+            .cover-dev-box { flex-direction: column; text-align: center; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="coverScreen" class="cover-screen">
+        <div class="cover-card">
+            <span class="cover-badge">🏛️ Modul Pembelajaran Interaktif (MPI)</span>
+            <h1 class="cover-title">SEJARAH PRASEJARAH & PERIODISASI ZAMAN BATU</h1>
+            <p class="cover-subtitle">Pembelajaran Sejarah MA Kelas X (Fase E) • Berbasis Digital & Kurikulum Merdeka</p>
+            
+            <div class="cover-dev-box">
+                <div class="cover-dev-photo-wrap">
+                    <img src="https://iili.io/namzs71.md.jpg" 
+                         alt="Yeyen G. Thalib" 
+                         class="cover-dev-photo"
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:2.2rem;\'>👩‍🏫</div>';">
+                </div>
+                <div class="cover-dev-info">
+                    <span>PENGEMBANG MODUL</span>
+                    <h4>Yeyen G. Thalib</h4>
+                    <p>MAN 1 Kabupaten Gorontalo</p>
+                    <small style="color: var(--text-muted); font-size: 0.8rem;">Studi Situs Prasejarah Oluhuta & Periodisasi Batu</small>
+                </div>
+            </div>
+
+            <button class="btn cover-btn" onclick="enterDashboard()">
+                🚀 Masuk ke Beranda Pembelajaran ➔
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <div class="brand-container">
+            <div class="brand-logo">🏛️</div>
+            <div class="brand-text">
+                <h1>MPI SEJARAH PRASEJARAH</h1>
+                <p>MA Kelas X Fase E • MAN 1 Kabupaten Gorontalo</p>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-badge">
+                <span>📍 Situs Oluhuta</span>
+            </div>
+            <div class="stat-badge" id="xpBadge">
+                <span>⭐ <span id="xpValue">0</span> XP</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="ticker-container">
+        <span class="ticker-badge">INFO MPI</span>
+        <div class="ticker-text">
+            📢 Selamat Datang di Modul Pembelajaran Interaktif (MPI) Sejarah Prasejarah & Periodisasi Zaman Batu! • Khusus Siswa MA Kelas X Fase E • Pengembang: Yeyen G. Thalib (MAN 1 Kabupaten Gorontalo) • Database Google Sheets Terintegrasi!
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <sidebar>
+            <div class="nav-item" onclick="openCoverScreen()">
+                <span class="nav-icon">📜</span> Halaman Sampul
+            </div>
+            <div class="nav-item active" onclick="switchTab('overview')">
+                <span class="nav-icon">📊</span> Peta & Capaian
+            </div>
+            <div class="nav-item" onclick="switchTab('manusia-purba')">
+                <span class="nav-icon">💀</span> Manusia Purba
+            </div>
+            <div class="nav-item" onclick="switchTab('periodisasi')">
+                <span class="nav-icon">🪨</span> Periodisasi Batu
+            </div>
+            <div class="nav-item" onclick="switchTab('oluhuta')">
+                <span class="nav-icon">🏺</span> Konteks Gorontalo
+            </div>
+            <div class="nav-item" onclick="switchTab('kuis')">
+                <span class="nav-icon">📝</span> Kuis Formatif
+            </div>
+            <div class="nav-item" onclick="switchTab('pengembang')">
+                <span class="nav-icon">👤</span> Profil & Referensi
+            </div>
+        </sidebar>
+
+        <main>
+            <!-- SECTION 1: OVERVIEW -->
+            <section id="view-overview" class="view-section active">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🎯 Tujuan & Capaian Pembelajaran (Fase E)</h2>
+                        <span class="local-badge">Kurikulum Merdeka Madrasah</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+                        Modul Pembelajaran Interaktif (MPI) ini dirancang khusus untuk peserta didik Madrasah Aliyah di Gorontalo guna menganalisis evolusi kehidupan manusia purba, corak kebudayaan batu, dan keterkaitannya dengan kondisi alam serta temuan arkeologis lokal.
+                    </p>
+                    <div class="grid-3">
+                        <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-gold);">
+                            <h3 style="color: var(--accent-gold-light); font-size: 1rem; margin-bottom: 8px;">1. Identifikasi Manusia Purba</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Menganalisis jenis-jenis fosil manusia purba di Indonesia (Meganthropus, Pithecanthropus, Homo) beserta ciri anatomisnya.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-gold);">
+                            <h3 style="color: var(--accent-gold-light); font-size: 1rem; margin-bottom: 8px;">2. Periodisasi Zaman Batu</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Memahami transformasi teknologi dari Paleolitikum, Mesolitikum, Neolitikum hingga Megalitikum berdasarkan hasil kebudayaannya.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid #10b981;">
+                            <h3 style="color: #34d399; font-size: 1rem; margin-bottom: 8px;">3. Studi Situs Oluhuta</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Mengkaji jejak neolitikum & rangka manusia prasejarah di Situs Oluhuta, Kab. Bone Bolango, Gorontalo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🚀 Petualangan Belajar Eksploratif</h2>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">Silakan pilih langkah eksplorasi Anda atau klik tombol di bawah untuk mulai simulasi periodisasi batu!</p>
+                    <button class="btn" onclick="switchTab('periodisasi')">
+                        Mulai Simulasi Periodisasi Batu ➔
+                    </button>
+                </div>
+            </section>
+
+            <section id="view-manusia-purba" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">💀 Jenis & Ciri Manusia Purba di Indonesia</h2>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">
+                        Indonesia dikenal sebagai salah satu lumbung fosil manusia purba (hominid) terpenting di dunia. Temuan di sepanjang aliran Bengawan Solo (seperti Sangiran, Trinil, dan Ngandong) memberikan bukti nyata mengenai proses evolusi fisik dan kebudayaan manusia purba pada masa Pleistosen. Berikut adalah klasifikasi utama manusia purba yang ditemukan di wilayah Nusantara:
+                    </p>
+                    <div class="purba-list" id="purbaGrid"></div>
+                </div>
+            </section>
+
+            <section id="view-periodisasi" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🪨 Laboratorium Interaktif Periodisasi Zaman Batu</h2>
+                    </div>
+                    <p style="color: var(--text-muted);">Geser slider periodisasi di bawah ini untuk melihat perkembangan alat, pola hidup, dan adaptasi lingkungan manusia prasejarah secara dinamis!</p>
+
+                    <div class="timeline-control">
+                        <div class="slider-label">
+                            <span>Zaman: <span id="periodTitle" style="color:var(--accent-gold-light);">Paleolitikum</span></span>
+                            <span id="periodEra" style="color:var(--text-muted); font-size:0.85rem;">± 600.000 tahun lalu</span>
+                        </div>
+                        <input type="range" min="1" max="4" value="1" class="range-slider" id="periodSlider" oninput="updatePeriodSimulator(this.value)">
+                        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted);">
+                            <span>Paleolitikum</span>
+                            <span>Mesolitikum</span>
+                            <span>Neolitikum</span>
+                            <span>Megalitikum</span>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="visualizer-box">
+                            <div class="artifact-svg-container" id="artifactSvg"></div>
+                            <h3 id="artifactName" style="color: var(--accent-gold-light); margin-bottom: 5px;">Kapak Perimbas</h3>
+                            <p id="artifactType" style="font-size: 0.8rem; color: var(--text-muted);">Alat Batu Kasar / Berburu</p>
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.05);">
+                            <h4 style="color: var(--accent-gold); margin-bottom: 10px;">📋 Ringkasan Karakteristik</h4>
+                            <ul style="list-style-type: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                                <li><strong>Pola Kehidupan:</strong> <span id="polaHidup" style="color:#fff;">Nomaden</span></li>
+                                <li><strong>Sistem Ekonomi:</strong> <span id="sistemEkonomi" style="color:#fff;">Food Gathering</span></li>
+                                <li><strong>Teknologi Alat:</strong> <span id="teknologiAlat" style="color:#fff;">Batu kasar belum diasah</span></li>
+                                <li><strong>Ciri Khas Budaya:</strong> <span id="ciriBudaya" style="color:#fff;">Kebudayaan Pacitan & Ngandong</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-oluhuta" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🏺 Studi Kasus Lokal: Situs Prasejarah Oluhuta Gorontalo</h2>
+                        <span class="local-badge">Bone Bolango</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+                        Situs Oluhuta terletak di Kecamatan Kabila Bone, Kabupaten Bone Bolango, Provinsi Gorontalo. Situs ini memberikan bukti otentik pemukiman prasejarah era <strong>Neolitikum hingga Tradisi Megalitikum</strong> di Teluk Tomini.
+                    </p>
+
+                    <div class="grid-2">
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-gold);">
+                            <h3 style="color: var(--accent-gold-light); margin-bottom: 12px;">🔍 Temuan Arkeologis Oluhuta</h3>
+                            <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; padding-left: 20px;">
+                                <li><strong>Rangka Manusia Prasejarah:</strong> Ditemukan terkubur dalam posisi melipat (flexed burial) berorientasi ke arah utara/laut.</li>
+                                <li><strong>Gerabah & Tempikar:</strong> Dihiasi pola tera tali dan garis geometris khas Austronesia.</li>
+                                <li><strong>Alat Batu Obsidians/Serpih:</strong> Digunakan untuk meraut, memotong, dan mengolah makanan laut.</li>
+                                <li><strong>Perhiasan Manik-manik & Anting Kerang:</strong> Menunjukkan adanya kepercayaan dan ritual pemakaman.</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(16, 185, 129, 0.05); padding: 20px; border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <h3 style="color: #34d399; margin-bottom: 12px;">💡 Analisis Hubungan Lingkungan</h3>
+                            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+                                Posisi Oluhuta di pesisir pantai Teluk Tomini memungkinkan masyarakat prasejarah memanfaatkan sumber daya maritim sekaligus bercocok tanam di area pedalaman. Hal ini membuktikan bahwa nenek moyang di Gorontalo telah memiliki adaptasi ekologis yang sangat tinggi terhadap lingkungan pesisir dan daratan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-kuis" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📝 Kuis Formatif Interaktif (Terintegrasi Database)</h2>
+                        <span id="quizProgress" style="color: var(--accent-gold-light); font-weight: 700;">Identitas Siswa</span>
+                    </div>
+
+                    <!-- STEP 1: FORM IDENTITAS SISWA -->
+                    <div id="studentFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px 0;">
+                        <h3 style="color: var(--accent-gold-light); margin-bottom: 10px; font-size: 1.1rem; text-align: center;">Isi Identitas Sebelum Memulai Evaluasi</h3>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; text-align: center; margin-bottom: 20px;">
+                            Data hasil tes Anda akan tersimpan otomatis ke dalam database Spreadsheet Guru untuk evaluasi pembelajaran.
+                        </p>
+
+                        <form id="identityForm" onsubmit="startQuiz(event)">
+                            <div class="form-group">
+                                <label for="studentName">Nama Lengkap Siswa *</label>
+                                <input type="text" id="studentName" class="form-input" placeholder="Masukkan nama lengkap..." required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentClass">Kelas / Rombel *</label>
+                                <select id="studentClass" class="form-input" required>
+                                    <option value="" disabled selected>-- Pilih Kelas --</option>
+                                    <option value="XA">XA</option>
+                                    <option value="XB">XB</option>
+                                    <option value="XC">XC</option>
+                                    <option value="XD">XD</option>
+                                    <option value="XE">XE</option>
+                                    <option value="XF">XF</option>
+                                    <option value="XG">XG</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">
+                                🚀 Mulai Kerjakan Kuis
+                            </button>
+                        </form>
+
+                        <!-- Konfigurasi URL Google Apps Script -->
+                        <div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed rgba(255,255,255,0.1); text-align: center;">
+                            <button class="btn btn-outline" style="font-size: 0.78rem; padding: 6px 12px;" onclick="toggleConfigModal()">
+                                ⚙️ Pengaturan URL Backend Database (Guru)
+                            </button>
+                            <div id="configBox" style="display: none; margin-top: 12px; text-align: left;">
+                                <label style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 4px;">URL Web App Google Apps Script:</label>
+                                <input type="text" id="gasUrlInput" class="form-input" style="font-size: 0.8rem;" placeholder="https://script.google.com/macros/s/.../exec">
+                                <button class="btn" style="font-size: 0.78rem; padding: 6px 12px; margin-top: 6px;" onclick="saveGasUrl()">Simpan URL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: WADAH SOAL KUIS -->
+                    <div id="quizContainer" style="display: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 10px 16px; border-radius: var(--radius-md); margin-bottom: 20px;">
+                            <span style="font-size: 0.88rem; color: var(--text-muted);">Siswa: <strong id="displayName" style="color:#fff;">-</strong> (<span id="displayClass" style="color:var(--accent-gold-light);">-</span>)</span>
+                            <span class="sync-status">🟢 Terkoneksi Database</span>
+                        </div>
+
+                        <h3 id="quizQuestion" style="font-size: 1.05rem; margin-bottom: 18px; color: #fff; line-height: 1.5;"></h3>
+
+                        <div id="quizOptions"></div>
+
+                        <div id="feedbackBox" class="feedback-box">
+                            <h4 id="feedbackTitle" style="font-weight: 700; margin-bottom: 6px;"></h4>
+                            <p id="feedbackText" style="font-size: 0.88rem; line-height: 1.5;"></p>
+                        </div>
+
+                        <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <button class="btn btn-outline" id="prevBtn" onclick="navigateQuiz(-1)" disabled>❮ Sebelumnya</button>
+                            <button class="btn" id="nextBtn" onclick="navigateQuiz(1)">Selanjutnya ❯</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: HASIL KUIS & KIRIM KE DATABASE -->
+                    <div id="quizResult" style="display: none; text-align: center; padding: 30px 10px;">
+                        <h2 style="color: var(--accent-gold-light); font-size: 1.8rem; margin-bottom: 10px;">🎉 Evaluasi Selesai!</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">
+                            Terima kasih, <strong id="resultStudentName" style="color: #fff;"></strong>! Hasil evaluasi Anda telah dikirim ke guru.
+                        </p>
+                        <div style="font-size: 3rem; font-weight: 800; color: #fff; margin-bottom: 15px;" id="finalScore">0 / 100</div>
+                        
+                        <div id="submitStatusBox" style="margin-bottom: 20px; font-size: 0.9rem; padding: 10px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.1); border: 1px solid var(--border-gold); color: var(--accent-gold-light);">
+                            ⏳ Mengirimkan jawaban ke database Google Sheets...
+                        </div>
+
+                        <p id="resultGuidance" style="color: var(--accent-gold-light); max-width: 500px; margin: 0 auto 25px; line-height: 1.6;"></p>
+                        <button class="btn" onclick="resetQuiz()">🔄 Ulangi Evaluasi</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-pengembang" class="view-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">👤 Profil Informasi Pengembang</h2>
+                        <span class="local-badge">Pengembang MPI</span>
+                    </div>
+
+                    <div class="dev-profile-card">
+                        <div class="dev-avatar">
+                            <a href="https://freeimage.host/i/namzs71" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;">
+                                <img src="https://iili.io/namzs71.md.jpg" 
+                                     alt="Yeyen G. Thalib" 
+                                     class="dev-photo" 
+                                     loading="lazy"
+                                     onerror="this.onerror=null; this.parentElement.parentElement.innerHTML='👩‍🏫';">
+                            </a>
+                        </div>
+                        <div class="dev-info">
+                            <h3>Yeyen G. Thalib</h3>
+                            <p><strong>Instansi:</strong> MAN 1 Kabupaten Gorontalo</p>
+                            <p><strong>Email:</strong> <a href="mailto:yeyen_40502459190005@madrasah.kemenag.go.id" style="color: var(--accent-gold-light); text-decoration: none;">yeyen_40502459190005@madrasah.kemenag.go.id</a></p>
+                            <span class="dev-badge">Guru Sejarah Madrasah Aliyah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📖 Referensi & Kepustakaan</h2>
+                    </div>
+                    <ul class="ref-list">
+                        <li><strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi.</strong> (2021). <em>Buku Teks Utama Sejarah untuk SMA/MA Kelas X (Fase E)</em>. Jakarta: Pusat Kurikulum dan Perbukuan.</li>
+                        <li><strong>Poesponegoro, M. D., & Notosusanto, N.</strong> (2019). <em>Sejarah Nasional Indonesia I: Zaman Prasejarah di Indonesia</em>. Jakarta: Balai Pustaka.</li>
+                        <li><strong>Balai Arkeologi Sulawesi Utara & Gorontalo.</strong> (2018). <em>Laporan Penelitian Arkeologi Situs Oluhuta Kabupaten Bone Bolango, Provinsi Gorontalo</em>. Manado: Balar Sulut.</li>
+                        <li><strong>Direktorat KSKK Madrasah.</strong> (2022). <em>Panduan Pembelajaran dan Asesmen pada Kurikulum Merdeka di Madrasah</em>. Jakarta: Kemenag RI.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // CONFIGURATION DEFAULT BACKEND GAS
+        let DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbzutvu-emCViiqh1JuVxZs6ffZyujLUPBH2ss54S-nXIUSAh6mvQMSHbtXAs4vw0fn7Gw/exec";
+
+        let state = {
+            xp: 0,
+            currentTab: 'overview',
+            studentName: '',
+            studentClass: '',
+            startTime: null,
+            currentQuizIndex: 0,
+            quizAnswers: Array(5).fill(null),
+            score: 0
+        };
+
+        // Data Manusia Purba Lengkap
+        const manusiaPurbaData = [
+            {
+                nama: "Meganthropus paleojavanicus",
+                julukan: "Manusia Raksasa Tertua dari Jawa",
+                penemu: "G.H.R. Von Koenigswald (1936-1941) di Formasi Pucangan, Sangiran.",
+                ciri: "Tubuh tegap dan kekar, rahang bawah sangat besar dan kuat, tulang pipi tebal, tonjolan kening sangat mencolok, tidak memiliki dagu, serta memiliki otot kunyah yang sangat dominan.",
+                kebudayaan: "Hidup berkelompok dengan cara nomaden. Mengumpulkan makanan (Food Gathering) tingkat awal, utamanya jenis tumbuhan yang keras seperti akar-akaran dan biji-bijian. Belum ditemukan alat batu spesifik yang diasosiasikan langsung dengan fosil ini secara pasti.",
+                deskripsi: "Meganthropus paleojavanicus merupakan jenis hominid paling purba dan primitif yang ditemukan di Indonesia. Namanya secara harfiah berarti 'Manusia Raksasa Purba dari Jawa'. Fosil utamanya berupa fragmen rahang yang ukurannya jauh melampaui ukuran manusia modern. Diperkirakan hidup pada masa Pleistosen Bawah (sekitar 1 hingga 2 juta tahun yang lalu). Karena struktur fisiknya yang masih sangat kekar, para ahli sepakat bahwa makhluk ini bergantung mutlak pada alam sebagai herbivora.",
+                image: "Penjaga Rimba Purba Membawa Umbi Berakar.png",
+                caption: "Ilustrasi Rekonstruksi Hominid Berahang Besar (Representasi Meganthropus)"
+            },
+            {
+                nama: "Pithecanthropus erectus",
+                julukan: "Manusia Kera Berjalan Tegak (Java Man)",
+                penemu: "Eugene Dubois (1891) di Desa Trinil, Ngawi, Lembah Bengawan Solo.",
+                ciri: "Volume otak antara 750 - 900 cc, tinggi badan sekitar 165 - 180 cm, berjalan tegak sempurna secara bipedal, hidung lebar, tulang dahi menonjol tebal melintang di dahi, dan alat kunyah yang mereduksi.",
+                kebudayaan: "Mampu menciptakan alat batu kasar seperti Kapak Perimbas (Chopper) dan Kapak Genggam (Kebudayaan Pacitan). Mulai mengenal penggunaan api secara sederhana untuk menghangatkan badan, memasak daging, dan menghalau predator.",
+                deskripsi: "Pithecanthropus (atau sering diklasifikasikan sebagai Homo erectus paleojavanicus) adalah fosil manusia purba yang paling terkenal dari Indonesia. Penemuan oleh Dubois berupa atap tengkorak dan tulang paha (femur) membuktikan bahwa makhluk ini sudah berjalan tegak dengan dua kaki. Penemuan ini sempat menggemparkan dunia karena dianggap memecahkan teka-teki evolusi. Mereka hidup pada masa Pleistosen Tengah dan menyebar luas.",
+                image: "ChatGPT Image Oct 5, 2026, 08_40_22 PM.png",
+                caption: "Rekonstruksi Visual Pithecanthropus erectus"
+            },
+            {
+                nama: "Homo soloensis & Homo wajakensis",
+                julukan: "Manusia Cerdas dari Solo dan Wajak",
+                penemu: "Ter Haar, Oppenoorth (Solo, 1931) & B.D. van Rietschoten (Wajak, 1889).",
+                ciri: "Volume otak sudah mencapai 1000 - 1300 cc (mendekati manusia modern), tinggi badan 130 - 210 cm, muka tidak menonjol tajam ke depan, dan sudah memiliki pembentukan dagu (khususnya Wajakensis).",
+                kebudayaan: "Alat-alat batu yang dihasilkan lebih bervariasi dan halus (Flakes/Alat Serpih). Menciptakan alat berburu dari tulang dan tanduk rusa (Kebudayaan Ngandong). Diperkirakan mulai mengenal sistem religi (animisme awal).",
+                deskripsi: "Berbeda dengan genus Pithecanthropus, kelompok 'Homo' telah memiliki tingkat kecerdasan dan peradaban yang jauh lebih tinggi. Homo wajakensis bahkan digolongkan sebagai Homo sapiens (manusia modern) tahap awal yang merupakan nenek moyang langsung ras Austromelanesoid di Nusantara. Tingginya volume otak membuktikan kemampuan mereka dalam berkomunikasi, merencanakan perburuan, dan beradaptasi menghadapi perubahan iklim ekstrim.",
+                image: "homo wajakensis.png",
+                caption: "Rekonstruksi Homo soloensis & Homo wajakensis"
+            },
+            {
+                nama: "Homo floresiensis",
+                julukan: "Manusia Kerdil (The Hobbit) dari Flores",
+                penemu: "Tim Arkeolog Gabungan Indonesia (Puslit Arkenas) & Australia (2003) di Gua Liang Bua.",
+                ciri: "Tinggi badan rata-rata maksimal hanya 106 cm, volume otak sangat kecil (±380 cc, seukuran simpanse), namun memiliki postur tegak dan anatomi tulang yang lengkap.",
+                kebudayaan: "Meskipun otaknya kecil, mereka mampu membuat alat batu mikrolit (kecil dan tajam) yang sangat spesifik, menguasai penggunaan api, dan diyakini mampu memburu Stegodon (gajah purba kerdil) serta mempertahankan diri dari Komodo.",
+                deskripsi: "Penemuan Homo floresiensis adalah salah satu penemuan paleoantropologi paling sensasional di abad ke-21. Fenomena tubuh kerdil mereka dijelaskan melalui teori 'Insular Dwarfism' (Pengerdilan Kepulauan), di mana makhluk hidup terkurung di pulau dengan sumber makanan terbatas akan berevolusi mengecil secara genetik untuk menghemat energi. Mereka diperkirakan eksis berdampingan dengan manusia modern hingga sekitar 50.000 tahun yang lalu.",
+                image: "homo floresiensis.jpg",
+                caption: "Rekonstruksi Wajah & Postur Homo floresiensis (Liang Bua, Flores)"
+            }
+        ];
+
+        // Data Periodisasi Batu
+        const periodData = {
+            1: {
+                title: "Paleolitikum (Zaman Batu Tua)",
+                era: "± 600.000 tahun lalu",
+                pola: "Nomaden ( berpindah-pindah )",
+                ekonomi: "Food Gathering ( Berburu & mengumpulkan makanan )",
+                alat: "Batu kasar, belum diasah sama sekali",
+                budaya: "Kapak perimbas (chopper), Kapak genggam, alat serpih kasar",
+                artifactName: "Kapak Perimbas (Chopper)",
+                artifactType: "Alat Batu Kasar Paleolitikum",
+                svg: `<a href="https://freeimage.host/i/n0OWCw7" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;"><img src="https://iili.io/n0OWCw7.jpg" alt="Kapak Perimbas" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" onerror="this.onerror=null; this.src='https://iili.io/n0OWCw7.png';"></a>`
+            },
+            2: {
+                title: "Mesolitikum (Zaman Batu Tengah)",
+                era: "± 10.000 - 5.000 tahun lalu",
+                pola: "Semi-Sedenter ( Gua / Abris Sous Roche )",
+                ekonomi: "Food Gathering Tingkat Lanjut ( Berburu & Hasil Laut )",
+                alat: "Batu mulai dihaluskan salah satu sisinya",
+                budaya: "Kjokkenmoddinger, Pebble (Kapak Sumatera), Flakes",
+                artifactName: "Pebble (Kapak Genggam Sumatera)",
+                artifactType: "Alat Batu Semi-Halus Mesolitikum",
+                svg: `<a href="https://freeimage.host/i/n0eIzhB" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;"><img src="https://iili.io/n0eIzhB.jpg" alt="Pebble (Kapak Genggam Sumatera)" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" onerror="this.onerror=null; this.src='https://iili.io/n0eIzhB.png';"></a>`
+            },
+            3: {
+                title: "Neolitikum (Zaman Batu Baru)",
+                era: "± 3.000 tahun lalu (Austronesia)",
+                pola: "Sedenter ( Menetap di pemukiman )",
+                ekonomi: "Food Producing ( Bercocok tanam & beternak )",
+                alat: "Batu dihaluskan/diasah sempurna",
+                budaya: "Kapak Persegi, Kapak Lonjong, Gerabah halus",
+                artifactName: "Kapak Persegi / Lonjong",
+                artifactType: "Alat Batu Diasah Neolitikum",
+                svg: `<a href="https://freeimage.host/i/n0eN6sS" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;"><img src="https://iili.io/n0eN6sS.jpg" alt="Kapak Persegi / Lonjong" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" onerror="this.onerror=null; this.src='https://iili.io/n0eN6sS.png';"></a>`
+            },
+            4: {
+                title: "Megalitikum (Zaman Batu Besar)",
+                era: "Terkait dengan Neolitikum & Logam",
+                pola: "Sedenter Komunal Berstruktur Sosial Khusus",
+                ekonomi: "Pertanian Terorganisasi & Barter",
+                alat: "Monumen batu besar untuk ritual",
+                budaya: "Menhir, Dolmen, Sarkofagus, Punden Berundak",
+                artifactName: "Dolmen & Menhir",
+                artifactType: "Monumen Batu Ritual Megalitikum",
+                svg: `<a href="https://freeimage.host/i/n0kEKLg" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;"><img src="https://iili.io/n0kEKLg.jpg" alt="Dolmen & Menhir" style="width:100%; height:100%; object-fit:contain; border-radius:8px;" onerror="this.onerror=null; this.src='https://iili.io/n0kEKLg.png';"></a>`
+            }
+        };
+
+        let quizBank = [
+            // A. PILIHAN GANDA (10 SOAL)
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "1. Dalam mempelajari sejarah Kelas X, siswa diajak berpikir diakronik dan sinkronik. Jika Anda diminta menganalisis kondisi sosial, ekonomi, dan politik masyarakat Gorontalo secara mendalam pada saat peristiwa patriotik 23 Januari 1942 terjadi tanpa merunut jauh ke masa lampau, maka pendekatan berpikir yang Anda gunakan adalah...",
+                options: [
+                    "A. Diakronik, karena memanjang dalam waktu",
+                    "B. Sinkronik, karena meluas dalam ruang dan berfokus pada satu titik waktu",
+                    "C. Kausalitas, karena mencari sebab akibat dari masa lalu",
+                    "D. Kronologis, karena mengurutkan peristiwa secara berurutan",
+                    "E. Periodisasi, karena membagi babak sejarah"
+                ],
+                answer: 1,
+                explanation: "Sinkronik memfokuskan kajian sejarah secara meluas dalam ruang pada satu struktur/titik waktu tertentu secara mendalam tanpa merunut panjang secara kronologis."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "2. Peristiwa patriotik 23 Januari 1942 di Gorontalo yang dipimpin oleh Nani Wartabone bukan sekadar bentuk perlawanan lokal. Jika dianalisis dalam skala nasional, makna strategis peristiwa ini bagi pergerakan kemerdekaan Indonesia adalah...",
+                options: [
+                    "A. Mengusir pemerintah kolonial Belanda secara permanen dari seluruh pulau Sulawesi",
+                    "B. Membuktikan bahwa kesadaran nasionalisme dan kemerdekaan telah mengakar kuat di luar Pulau Jawa sebelum 17 Agustus 1945",
+                    "C. Menjadi pemicu utama meletusnya Perang Pasifik melawan Jepang",
+                    "D. Memaksa pemerintah kolonial untuk langsung memberikan kemerdekaan pada saat itu juga",
+                    "E. Mengubah sistem pemerintahan tradisional Gorontalo menjadi sistem republik sekuler"
+                ],
+                answer: 1,
+                explanation: "Peristiwa 23 Januari 1942 membuktikan bahwa semangat proklamasi kemerdekaan dan kedaulatan bangsa sudah bergelora secara nyata di luar Pulau Jawa jauh sebelum 17 Agustus 1945."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "3. Perpustakaan modern (seperti Perpustakaan Ibnu Rusyd) kini tidak lagi sekadar gudang buku, melainkan pusat inklusi sosial dan literasi. Dari skenario berikut, manakah yang menunjukkan peran literasi tingkat tinggi (HOTS) yang paling tepat di era digital?",
+                options: [
+                    "A. Siswa meminjam buku sejarah sebanyak-banyaknya untuk dihafal saat ujian",
+                    "B. Siswa menyalin langsung teks dari internet untuk tugas jurnal refleksi",
+                    "C. Siswa mengumpulkan berbagai sumber digital, membandingkan kredibilitasnya, lalu menyusun esai orisinal tentang tradisi lokal",
+                    "D. Petugas perpustakaan membatasi akses internet agar siswa hanya membaca buku cetak",
+                    "E. Siswa menggunakan perpustakaan semata-mata untuk bermain game orientasi"
+                ],
+                answer: 2,
+                explanation: "Kemampuan mengkritisi, membandingkan validitas sumber, dan mengaitkannya menjadi karya tulis orisinal merupakan indikator utama keterampilan berpikir tingkat tinggi (HOTS)."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "4. Penerapan 'Kurikulum Berbasis Cinta' dalam pembelajaran sejarah bertujuan membangun empati siswa. Tindakan manakah yang paling mencerminkan keberhasilan penerapan konsep ini saat siswa mempelajari masa penjajahan?",
+                options: [
+                    "A. Siswa mampu menyebutkan seluruh nama Gubernur Jenderal VOC dengan tepat",
+                    "B. Siswa menyimpan dendam sejarah terhadap negara-negara Eropa",
+                    "C. Siswa mampu menempatkan diri pada penderitaan rakyat masa lalu dan mengambil nilai ketangguhan untuk diaplikasikan saat ini",
+                    "D. Siswa menganggap masa penjajahan adalah takdir yang tidak perlu dianalisis",
+                    "E. Siswa membuat modul ajar sejarah untuk diperjualbelikan"
+                ],
+                answer: 2,
+                explanation: "Pembelajaran berbasis cinta menekankan empati sejarah, yaitu kemampuan meresapi perjuangan tokoh masa lalu dan mentransformasikannya menjadi nilai karakter positif saat ini."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "5. Tradisi dan kearifan lokal Gorontalo berlandaskan filosofi 'Adat Bersendikan Syara', Syara' Bersendikan Kitabullah'. Bagaimana cara paling adaptif mengintegrasikan filosofi ini ke dalam Proyek Penguatan Profil Pelajar Pancasila dan Profil Pelajar Rahmatan Lil 'Alamin (P5RA) di madrasah era modern?",
+                options: [
+                    "A. Menolak segala bentuk teknologi asing karena dianggap merusak tradisi",
+                    "B. Menggunakan media sosial dan desain komunikasi visual untuk mengkampanyekan nilai-nilai etika dan moral lokal kepada generasi Gen-Z",
+                    "C. Mewajibkan seluruh siswa berbicara dengan bahasa adat Gorontalo kuno setiap hari tanpa terkecuali",
+                    "D. Menghapus pelajaran sejarah umum dan hanya mengajarkan sejarah agama",
+                    "E. Mengurangi interaksi dengan sekolah lain untuk menjaga kemurnian budaya"
+                ],
+                answer: 1,
+                explanation: "Integrasi adaptif menyelaraskan nilai luhur adat dan syariat dengan media digital modern agar mudah diterima oleh generasi muda Gen-Z."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "6. Kebijakan Politik Etis (Balas Budi) yang diterapkan Belanda pada awal abad ke-20 berfokus pada Edukasi, Irigasi, dan Transmigrasi. Meskipun pada awalnya bertujuan untuk eksploitasi yang lebih halus, kebijakan Edukasi justru menjadi 'bumerang' bagi Belanda karena...",
+                options: [
+                    "A. Menguras kas negara Belanda hingga bangkrut",
+                    "B. Melahirkan golongan elit pribumi terpelajar yang menyadari makna nasionalisme dan memelopori pergerakan nasional",
+                    "C. Penduduk pribumi menolak disekolahkan sehingga sekolah-sekolah kosong",
+                    "D. Menyebabkan perpindahan penduduk secara besar-besaran ke Pulau Jawa",
+                    "E. Memicu perlawanan fisik bersenjata di berbagai daerah secara serentak"
+                ],
+                answer: 1,
+                explanation: "Pendidikan Politik Etis melahirkan kaum intelektual (kaum terpelajar) yang membuka kesadaran kebangsaan dan mendirikan organisasi pergerakan nasional."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "7. Dalam penulisan sejarah (Historiografi), seorang sejarawan rentan terjebak pada subjektivitas. Jika seorang siswa menulis jurnal refleksi sejarah lokal Gorontalo namun hanya menggunakan sumber dari cerita satu pihak keluarganya saja, kelemahan utama dari tulisan tersebut adalah...",
+                options: [
+                    "A. Terlalu banyak menggunakan data kuantitatif",
+                    "B. Kurangnya kritik sumber (verifikasi) yang objektif karena tidak ada pembanding (koroborasi)",
+                    "C. Tulisannya akan menjadi terlalu panjang dan membosankan",
+                    "D. Tidak menggunakan bahasa Indonesia yang baku",
+                    "E. Kehilangan unsur estetika dalam penulisan"
+                ],
+                answer: 1,
+                explanation: "Penulisan sejarah yang valid memerlukan pembandingan (koroborasi) beberapa sumber agar terhindar dari bias dan subjektivitas tunggal."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "8. Rempah-rempah nusantara adalah komoditas utama yang memicu penjelajahan samudra bangsa Eropa. Dari sudut pandang ekologi dan ekonomi masa kini, pelajaran apa yang bisa ditarik dari sejarah 'Jalur Rempah' tersebut?",
+                options: [
+                    "A. Bangsa Indonesia harus kembali mengisolasi diri dari perdagangan internasional",
+                    "B. Eksploitasi sumber daya alam yang tidak terkendali oleh pihak luar akan menyebabkan kerugian jangka panjang bagi masyarakat lokal",
+                    "C. Perdagangan internasional hanya menguntungkan negara-negara kepulauan",
+                    "D. Rempah-rempah sudah tidak memiliki nilai jual di pasar global modern",
+                    "E. Kekayaan alam selalu menjamin kesejahteraan penduduk lokalnya secara otomatis"
+                ],
+                answer: 1,
+                explanation: "Eksploitasi monopoli tanpa wawasan keberlanjutan ekologis dan kesejahteraan lokal hanya menimbulkan kerusakan sistemik jangka panjang."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "9. Karya kriya sulaman Karawo bukan hanya sekadar pakaian, melainkan identitas budaya. Jika dihadapkan pada ancaman fast fashion (pakaian produksi massal yang murah), strategi bernalar tingkat tinggi apa yang harus dilakukan pengrajin lokal untuk bertahan?",
+                options: [
+                    "A. Menurunkan kualitas bahan agar harganya bisa menyamai produk pabrik",
+                    "B. Berhenti memproduksi Karawo dan beralih berdagang pakaian impor",
+                    "C. Memberikan nilai tambah melalui penceritaan branding (storytelling) sejarah Karawo dan inovasi desain yang relevan dengan tren masa kini",
+                    "D. Meminta pemerintah melarang total seluruh penjualan pakaian modern di daerah tersebut",
+                    "E. Menjual pola sulaman kepada pabrik asing untuk diproduksi dengan mesin"
+                ],
+                answer: 2,
+                explanation: "Pemberian nilai tambah kultural, penceritaan filosofi (storytelling), dan inovasi desain merupakan strategi kreatif memenangi persaingan pasar global."
+            },
+            {
+                type: 'single',
+                category: 'A. Pilihan Ganda',
+                q: "10. Ketika mengevaluasi sumber sejarah, dokumen resmi pemerintah kolonial seringkali menyebut para pejuang lokal (seperti Pangeran Diponegoro atau Nani Wartabone) sebagai 'pemberontak', sementara buku sejarah nasional menyebut mereka 'pahlawan'. Perbedaan label ini membuktikan bahwa...",
+                options: [
+                    "A. Sejarah tidak memiliki kebenaran sama sekali",
+                    "B. Historiografi selalu dipengaruhi oleh sudut pandang dan kepentingan siapa yang menulisnya",
+                    "C. Sumber sejarah lokal tidak valid dan harus diabaikan",
+                    "D. Pemerintah kolonial selalu menyajikan data yang objektif",
+                    "E. Tokoh sejarah selalu memiliki kepribadian ganda"
+                ],
+                answer: 1,
+                explanation: "Historiografi dipengaruhi oleh perspektif politis, nilai, serta sudut pandang subjektif pihak penulisnya (subjektivitas penulisan sejarah)."
+            },
+
+            // B. PILIHAN GANDA KOMPLEKS (5 SOAL)
+            {
+                type: 'multiple',
+                category: 'B. Pilihan Ganda Kompleks (Pilih beberapa jawaban benar)',
+                q: "11. Tahapan penelitian sejarah (metode sejarah) menuntut ketelitian dan daya kritis. Manakah dari pernyataan di bawah ini yang merupakan penerapan yang benar dari tahap Kritik (Verifikasi) dan Interpretasi?",
+                options: [
+                    "A. Memastikan keaslian tinta dan kertas pada naskah proklamasi (Kritik Ekstern)",
+                    "B. Mengumpulkan sebanyak-banyaknya buku dari Perpustakaan Ibnu Rusyd tanpa dibaca (Heuristik)",
+                    "C. Menganalisis makna tersirat di balik isi surat-surat Kartini (Kritik Intern)",
+                    "D. Merangkai fakta-fakta yang ditemukan menjadi sebuah narasi sejarah yang bermakna (Interpretasi)",
+                    "E. Mencetak tulisan menjadi buku yang dipasarkan ke publik (Kritik)"
+                ],
+                answer: [0, 2, 3],
+                explanation: "Pernyataan A (Kritik Ekstern keaslian fisik), C (Kritik Intern otentisitas isi), dan D (Interpretasi pembentukan narasi fakta) adalah penerapan metode sejarah yang tepat."
+            },
+            {
+                type: 'multiple',
+                category: 'B. Pilihan Ganda Kompleks (Pilih beberapa jawaban benar)',
+                q: "12. Dalam kerangka 'Kurikulum Berbasis Cinta' dan pendidikan karakter di madrasah, pembelajaran sejarah berfungsi sebagai medium refleksi. Pernyataan manakah yang menunjukkan tercapainya fungsi reflektif tersebut?",
+                options: [
+                    "A. Siswa merenungkan kegagalan perlawanan kedaerahan masa lalu untuk menyadari pentingnya persatuan dan kesatuan saat ini",
+                    "B. Siswa menyadari bahwa keberhasilan tokoh sejarah didukung oleh rasa empati dan kepedulian terhadap nasib bangsanya",
+                    "C. Siswa menghafal tahun kejadian murni untuk mendapatkan nilai 100 di rapor",
+                    "D. Siswa menyusun modul ajar yang menekankan pada sanksi dan hukuman ketat",
+                    "E. Siswa mengaplikasikan semangat rela berkorban para pahlawan saat bekerja sama dalam tugas kelompok orientasi/MATSAMA"
+                ],
+                answer: [0, 1, 4],
+                explanation: "Pernyataan A, B, dan E mencerminkan internalisasi nilai reflektif, empati, serta penerapan semangat perjuangan dalam kehidupan nyata."
+            },
+            {
+                type: 'multiple',
+                category: 'B. Pilihan Ganda Kompleks (Pilih beberapa jawaban benar)',
+                q: "13. Kearifan lokal Gorontalo tercermin dalam berbagai tradisi lisan, adat istiadat, dan kesenian. Di bawah ini, manakah yang merupakan bentuk pelestarian budaya lokal yang selaras dengan tantangan abad ke-21?",
+                options: [
+                    "A. Mengubah seluruh aturan adat agar sama dengan budaya pop asing",
+                    "B. Membuat video pendek dokumenter tentang sejarah pembuatan Karawo untuk diunggah di platform digital",
+                    "C. Menulis jurnal refleksi ilmiah mengenai nilai-nilai toleransi dalam Huyula (gotong royong khas Gorontalo)",
+                    "D. Mengisolasi masyarakat adat dari akses pendidikan luar",
+                    "E. Menjadikan filosofi adat sebagai materi pembelajaran bermakna (P5RA) di kelas X"
+                ],
+                answer: [1, 2, 4],
+                explanation: "Pernyataan B, C, dan E memanfaatkan media modern, riset ilmiah, dan kurikulum madrasah (P5RA) untuk melestarikan tradisi secara positif."
+            },
+            {
+                type: 'multiple',
+                category: 'B. Pilihan Ganda Kompleks (Pilih beberapa jawaban benar)',
+                q: "14. Runtuhnya kongsi dagang VOC di Nusantara tidak semata-mata karena perlawanan rakyat, tetapi juga masalah internal. Manakah faktor internal yang menunjukkan kelemahan struktural VOC?",
+                options: [
+                    "A. Korupsi yang merajalela di kalangan pegawai VOC",
+                    "B. Serangan dari tentara Jepang pada tahun 1942",
+                    "C. Sistem pembukuan keuangan yang tidak transparan dan banyaknya utang",
+                    "D. Kalah bersaing dengan pedagang-pedagang dari Spanyol di Selat Malaka",
+                    "E. Besarnya biaya perang yang harus dikeluarkan VOC untuk meredam perlawanan lokal"
+                ],
+                answer: [0, 2],
+                explanation: "Pernyataan A (korupsi merajalela) dan C (pembukuan tidak transparan & utang menumpuk) adalah faktor internal kehancuran VOC hingga dibubarkan tahun 1799."
+            },
+            {
+                type: 'multiple',
+                category: 'B. Pilihan Ganda Kompleks (Pilih beberapa jawaban benar)',
+                q: "15. Literasi informasi di perpustakaan sekolah menuntut kemampuan menyaring hoaks. Saat mencari referensi sejarah, ciri-ciri sumber digital yang kredibel adalah...",
+                options: [
+                    "A. Ditulis oleh penulis nir-identitas (anonim) di blog pribadi yang penuh iklan",
+                    "B. Memiliki daftar pustaka atau rujukan sumber primer yang jelas",
+                    "C. Dipublikasikan oleh lembaga resmi, universitas (domain .ac.id / .edu), atau jurnal ilmiah",
+                    "D. Menggunakan judul berita clickbait yang provokatif dan memihak tanpa bukti",
+                    "E. Menyajikan data yang objektif dan dapat dikonfirmasi (dikuroborasi) silang dengan sumber lain"
+                ],
+                answer: [1, 2, 4],
+                explanation: "Sumber digital terpercaya memiliki rekam jejak akademik (B), institusional resmi (C), dan dapat diverifikasi silang (E)."
+            },
+
+            // C. BENAR ATAU SALAH (5 SOAL)
+            {
+                type: 'single',
+                category: 'C. Benar atau Salah',
+                q: "16. [BENAR / SALAH]\nPeristiwa 23 Januari 1942 di Gorontalo yang memproklamasikan kemerdekaan lokal di bawah pimpinan Nani Wartabone, terjadi sebelum kekuasaan Belanda di Nusantara secara resmi menyerah kepada Jepang di Kalijati.",
+                options: [
+                    "A. BENAR",
+                    "B. SALAH"
+                ],
+                answer: 0,
+                explanation: "BENAR. Peristiwa patriotik Gorontalo terjadi pada 23 Januari 1942, sedangkan kapitulasi Kalijati (Belanda menyerah ke Jepang) baru terjadi pada 8 Maret 1942."
+            },
+            {
+                type: 'single',
+                category: 'C. Benar atau Salah',
+                q: "17. [BENAR / SALAH]\nKonsep berpikir diakronik dalam sejarah berarti kita mempelajari suatu peristiwa dengan menganalisis berbagai aspek (sosial, ekonomi, politik) secara sangat meluas pada satu waktu yang singkat, tanpa mempedulikan urutan waktu atau kronologinya.",
+                options: [
+                    "A. BENAR",
+                    "B. SALAH"
+                ],
+                answer: 1,
+                explanation: "SALAH. Pernyataan tersebut adalah definisi berpikir Sinkronik. Diakronik adalah berpikir kronologis yang memanjang dalam waktu dan menyempit dalam ruang."
+            },
+            {
+                type: 'single',
+                category: 'C. Benar atau Salah',
+                q: "18. [BENAR / SALAH]\nDalam menyusun jurnal refleksi modul ajar kesejarahan, guru tidak hanya menilai kognitif (hafalan) siswa, melainkan juga afektif (sikap), seperti bagaimana siswa mengkonstruksi makna 'cinta tanah air' dari materi yang dipelajari.",
+                options: [
+                    "A. BENAR",
+                    "B. SALAH"
+                ],
+                answer: 0,
+                explanation: "BENAR. Jurnal refleksi dalam Kurikulum Merdeka / Berbasis Cinta mengukur dimensi afektif, kesadaran nilai, dan pemaknaan karakter siswa."
+            },
+            {
+                type: 'single',
+                category: 'C. Benar atau Salah',
+                q: "19. [BENAR / SALAH]\nCandi Borobudur dan Prambanan merupakan bukti murni arsitektur dari India yang dibangun oleh pekerja-pekerja India di Nusantara tanpa adanya interaksi, akulturasi, atau sentuhan kejeniusan lokal (local genius) masyarakat Indonesia masa lampau.",
+                options: [
+                    "A. BENAR",
+                    "B. SALAH"
+                ],
+                answer: 1,
+                explanation: "SALAH. Bangunan candi di Indonesia merupakan wujud akulturasi budaya India (Hindu-Buddha) dengan kearifan lokal (local genius) seperti struktur punden berundak."
+            },
+            {
+                type: 'single',
+                category: 'C. Benar atau Salah',
+                q: "20. [BENAR / SALAH]\nTujuan diadakannya game orientasi atau MATSAMA di perpustakaan madrasah adalah semata-mata untuk perpeloncoan akademik, bukan untuk mengenalkan sumber daya literasi atau membangun kedekatan emosional antara tutor, penasihat, dan siswa baru.",
+                options: [
+                    "A. BENAR",
+                    "B. SALAH"
+                ],
+                answer: 1,
+                explanation: "SALAH. MATSAMA (Masa Ta'aruf Siswa Madrasah) berfokus pada pengenalan lingkungan belajar yang aman, inklusif, humanis, dan literatif."
+            },
+
+            // D. MENCOCOKKAN (5 SOAL)
+            {
+                type: 'single',
+                category: 'D. Mencocokkan (Pasangkan Istilah Kolom A dengan Keterangan Kolom B)',
+                q: "21. [Mencocokkan]\nKOLOM A: 21. Heuristik\nManakah penjelasan/penerapan yang paling tepat di Kolom B?",
+                options: [
+                    "A. Menelaah dampak krisis ekonomi 1997 terhadap kehidupan sosial masyarakat Indonesia secara mendalam pada tahun tersebut saja.",
+                    "B. Kemampuan afektif dalam 'Kurikulum Berbasis Cinta' di mana siswa mampu merasakan dan memahami perspektif serta kondisi psikologis tokoh di masa lalu.",
+                    "C. Tahapan di mana siswa pergi ke Perpustakaan Ibnu Rusyd atau mewawancarai tokoh adat untuk mengumpulkan sumber dan jejak-jejak peristiwa masa lalu.",
+                    "D. Penulisan sejarah masa kerajaan yang berpusat pada raja (istanasentris) dan kerap bercampur dengan mitos atau legenda untuk melegitimasi kekuasaan.",
+                    "E. Bentuk representasi visual dari kearifan lokal Gorontalo berupa seni kriya sulam yang membutuhkan kesabaran, ketelitian, dan nilai estetika tinggi."
+                ],
+                answer: 2,
+                explanation: "Heuristik adalah tahap pertama penelitian sejarah, yaitu berburu dan mengumpulkan dokumen / sumber sejarah."
+            },
+            {
+                type: 'single',
+                category: 'D. Mencocokkan (Pasangkan Istilah Kolom A dengan Keterangan Kolom B)',
+                q: "22. [Mencocokkan]\nKOLOM A: 22. Karawo\nManakah penjelasan/penerapan yang paling tepat di Kolom B?",
+                options: [
+                    "A. Menelaah dampak krisis ekonomi 1997 terhadap kehidupan sosial masyarakat Indonesia secara mendalam pada tahun tersebut saja.",
+                    "B. Kemampuan afektif dalam 'Kurikulum Berbasis Cinta' di mana siswa mampu merasakan dan memahami perspektif serta kondisi psikologis tokoh di masa lalu.",
+                    "C. Tahapan di mana siswa pergi ke Perpustakaan Ibnu Rusyd atau mewawancarai tokoh adat untuk mengumpulkan sumber dan jejak-jejak peristiwa masa lalu.",
+                    "D. Penulisan sejarah masa kerajaan yang berpusat pada raja (istanasentris) dan kerap bercampur dengan mitos atau legenda untuk melegitimasi kekuasaan.",
+                    "E. Bentuk representasi visual dari kearifan lokal Gorontalo berupa seni kriya sulam yang membutuhkan kesabaran, ketelitian, dan nilai estetika tinggi."
+                ],
+                answer: 4,
+                explanation: "Karawo adalah seni kriya sulam tradisional khas Gorontalo yang bernilai seni tinggi."
+            },
+            {
+                type: 'single',
+                category: 'D. Mencocokkan (Pasangkan Istilah Kolom A dengan Keterangan Kolom B)',
+                q: "23. [Mencocokkan]\nKOLOM A: 23. Historiografi Tradisional\nManakah penjelasan/penerapan yang paling tepat di Kolom B?",
+                options: [
+                    "A. Menelaah dampak krisis ekonomi 1997 terhadap kehidupan sosial masyarakat Indonesia secara mendalam pada tahun tersebut saja.",
+                    "B. Kemampuan afektif dalam 'Kurikulum Berbasis Cinta' di mana siswa mampu merasakan dan memahami perspektif serta kondisi psikologis tokoh di masa lalu.",
+                    "C. Tahapan di mana siswa pergi ke Perpustakaan Ibnu Rusyd atau mewawancarai tokoh adat untuk mengumpulkan sumber dan jejak-jejak peristiwa masa lalu.",
+                    "D. Penulisan sejarah masa kerajaan yang berpusat pada raja (istanasentris) dan kerap bercampur dengan mitos atau legenda untuk melegitimasi kekuasaan.",
+                    "E. Bentuk representasi visual dari kearifan lokal Gorontalo berupa seni kriya sulam yang membutuhkan kesabaran, ketelitian, dan nilai estetika tinggi."
+                ],
+                answer: 3,
+                explanation: "Historiografi tradisional berfokus pada raja/istana (istanasentris) dan diwarnai mitos/legenda."
+            },
+            {
+                type: 'single',
+                category: 'D. Mencocokkan (Pasangkan Istilah Kolom A dengan Keterangan Kolom B)',
+                q: "24. [Mencocokkan]\nKOLOM A: 24. Sinkronik\nManakah penjelasan/penerapan yang paling tepat di Kolom B?",
+                options: [
+                    "A. Menelaah dampak krisis ekonomi 1997 terhadap kehidupan sosial masyarakat Indonesia secara mendalam pada tahun tersebut saja.",
+                    "B. Kemampuan afektif dalam 'Kurikulum Berbasis Cinta' di mana siswa mampu merasakan dan memahami perspektif serta kondisi psikologis tokoh di masa lalu.",
+                    "C. Tahapan di mana siswa pergi ke Perpustakaan Ibnu Rusyd atau mewawancarai tokoh adat untuk mengumpulkan sumber dan jejak-jejak peristiwa masa lalu.",
+                    "D. Penulisan sejarah masa kerajaan yang berpusat pada raja (istanasentris) dan kerap bercampur dengan mitos atau legenda untuk melegitimasi kekuasaan.",
+                    "E. Bentuk representasi visual dari kearifan lokal Gorontalo berupa seni kriya sulam yang membutuhkan kesabaran, ketelitian, dan nilai estetika tinggi."
+                ],
+                answer: 0,
+                explanation: "Sinkronik menganalisis peristiwa sejarah secara mendalam pada kurun waktu tertentu tanpa urutan waktu yang panjang."
+            },
+            {
+                type: 'single',
+                category: 'D. Mencocokkan (Pasangkan Istilah Kolom A dengan Keterangan Kolom B)',
+                q: "25. [Mencocokkan]\nKOLOM A: 25. Empati Sejarah\nManakah penjelasan/penerapan yang paling tepat di Kolom B?",
+                options: [
+                    "A. Menelaah dampak krisis ekonomi 1997 terhadap kehidupan sosial masyarakat Indonesia secara mendalam pada tahun tersebut saja.",
+                    "B. Kemampuan afektif dalam 'Kurikulum Berbasis Cinta' di mana siswa mampu merasakan dan memahami perspektif serta kondisi psikologis tokoh di masa lalu.",
+                    "C. Tahapan di mana siswa pergi ke Perpustakaan Ibnu Rusyd atau mewawancarai tokoh adat untuk mengumpulkan sumber dan jejak-jejak peristiwa masa lalu.",
+                    "D. Penulisan sejarah masa kerajaan yang berpusat pada raja (istanasentris) dan kerap bercampur dengan mitos atau legenda untuk melegitimasi kekuasaan.",
+                    "E. Bentuk representasi visual dari kearifan lokal Gorontalo berupa seni kriya sulam yang membutuhkan kesabaran, ketelitian, dan nilai estetika tinggi."
+                ],
+                answer: 1,
+                explanation: "Empati sejarah adalah kemampuan afektif merasakan dan memahami perspektif serta kondisi tokoh masa lalu."
+            }
+        ];
+
+        function initApp() {
+            renderPurbaCards();
+            updatePeriodSimulator(1);
+            loadSavedGasUrl();
+        }
+
+        function enterDashboard() {
+            const cover = document.getElementById('coverScreen');
+            if (cover) {
+                cover.classList.add('hidden');
+            }
+            addXP(10);
+        }
+
+        function openCoverScreen() {
+            const cover = document.getElementById('coverScreen');
+            if (cover) {
+                cover.classList.remove('hidden');
+            }
+        }
+
+        function switchTab(tabId) {
+            state.currentTab = tabId;
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+
+            const targetNav = Array.from(document.querySelectorAll('.nav-item')).find(el => el.getAttribute('onclick').includes(tabId));
+            if(targetNav) targetNav.classList.add('active');
+
+            const targetView = document.getElementById(`view-${tabId}`);
+            if(targetView) targetView.classList.add('active');
+
+            addXP(5);
+        }
+
+        function addXP(amount) {
+            state.xp += amount;
+            document.getElementById('xpValue').innerText = state.xp;
+        }
+
+        function renderPurbaCards() {
+            const grid = document.getElementById('purbaGrid');
+            grid.innerHTML = manusiaPurbaData.map((item, index) => `
+                <div class="purba-card">
+                    <div class="purba-img-container">
+                        <img src="${item.image}" alt="${item.nama}" loading="lazy" onerror="this.onerror=null; this.src='https://dummyimage.com/320x400/0f172a/f59e0b&text=Gambar+Tidak+Tersedia';">
+                        <div class="purba-img-caption">${item.caption}</div>
+                    </div>
+                    <div class="purba-content">
+                        <div class="purba-title-wrapper">
+                            <h3>${item.nama}</h3>
+                            <div class="purba-subtitle">"${item.julukan}"</div>
+                        </div>
+                        
+                        <div class="purba-meta">
+                            <strong>📍 Lokasi & Penemu:</strong><br>
+                            ${item.penemu}
+                        </div>
+                        
+                        <div class="purba-desc">
+                            ${item.deskripsi}
+                        </div>
+                        
+                        <div class="purba-traits">
+                            <div class="trait-box">
+                                <h4>🦴 Ciri Fisik Utama</h4>
+                                <p>${item.ciri}</p>
+                            </div>
+                            <div class="trait-box">
+                                <h4>⚒️ Hasil Kebudayaan</h4>
+                                <p>${item.kebudayaan}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updatePeriodSimulator(val) {
+            const p = periodData[val];
+            document.getElementById('periodTitle').innerText = p.title;
+            document.getElementById('periodEra').innerText = p.era;
+            document.getElementById('polaHidup').innerText = p.pola;
+            document.getElementById('sistemEkonomi').innerText = p.ekonomi;
+            document.getElementById('teknologiAlat').innerText = p.alat;
+            document.getElementById('ciriBudaya').innerText = p.budaya;
+            document.getElementById('artifactName').innerText = p.artifactName;
+            document.getElementById('artifactType').innerText = p.artifactType;
+            document.getElementById('artifactSvg').innerHTML = p.svg;
+        }
+
+        function toggleConfigModal() {
+            const box = document.getElementById('configBox');
+            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function saveGasUrl() {
+            const url = document.getElementById('gasUrlInput').value.trim();
+            if(url) {
+                localStorage.setItem('MPI_GAS_URL', url);
+                alert('URL Backend Google Apps Script berhasil disimpan!');
+            }
+        }
+
+        function loadSavedGasUrl() {
+            const savedUrl = localStorage.getItem('MPI_GAS_URL') || DEFAULT_GAS_URL;
+            document.getElementById('gasUrlInput').value = savedUrl;
+        }
+
+        function startQuiz(event) {
+            event.preventDefault();
+            const name = document.getElementById('studentName').value.trim();
+            const cls = document.getElementById('studentClass').value;
+
+            if(!name || !cls) {
+                alert('Mohon isi nama lengkap dan kelas terlebih dahulu!');
+                return;
+            }
+
+            state.studentName = name;
+            state.studentClass = cls;
+            state.startTime = new Date();
+            state.currentQuizIndex = 0;
+            state.quizAnswers = Array(quizBank.length).fill(null);
+
+            document.getElementById('studentFormContainer').style.display = 'none';
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('displayName').innerText = name;
+            document.getElementById('displayClass').innerText = cls;
+
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const qData = quizBank[state.currentQuizIndex];
+            document.getElementById('quizProgress').innerText = `Soal ${state.currentQuizIndex + 1} / ${quizBank.length}`;
+            
+            const catHtml = qData.category ? `<div style="font-size:0.8rem; font-weight:700; color:var(--accent-gold-light); margin-bottom:8px; text-transform:uppercase;">${qData.category}</div>` : '';
+            document.getElementById('quizQuestion').innerHTML = catHtml + qData.q.replace(/\n/g, '<br>');
+
+            const optionsContainer = document.getElementById('quizOptions');
+            const userAns = state.quizAnswers[state.currentQuizIndex];
+
+            if (qData.type === 'multiple') {
+                const selectedArr = Array.isArray(userAns) ? userAns : [];
+                const isConfirmed = userAns !== null && userAns.confirmed === true;
+
+                optionsContainer.innerHTML = qData.options.map((opt, idx) => {
+                    const isChecked = selectedArr.includes(idx);
+                    let statusClass = '';
+                    if (isConfirmed) {
+                        if (qData.answer.includes(idx)) statusClass = 'correct';
+                        else if (isChecked) statusClass = 'incorrect';
+                    }
+                    return `
+                        <div class="quiz-option ${statusClass} ${isChecked ? 'selected' : ''}" onclick="toggleMultiOption(${idx})">
+                            <input type="checkbox" ${isChecked ? 'checked' : ''} ${isConfirmed ? 'disabled' : ''} style="accent-color: var(--accent-gold); width: 18px; height: 18px; pointer-events: none;">
+                            <span style="flex: 1;">${opt}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                if (!isConfirmed) {
+                    optionsContainer.innerHTML += `
+                        <button class="btn" style="width: 100%; margin-top: 10px;" onclick="confirmMultiAnswer()">
+                            ✔️ Konfirmasi Jawaban Kompleks
+                        </button>
+                    `;
+                }
+
+                const feedbackBox = document.getElementById('feedbackBox');
+                if (isConfirmed) {
+                    feedbackBox.classList.add('show');
+                    const isFullyCorrect = selectedArr.length === qData.answer.length && selectedArr.every(val => qData.answer.includes(val));
+                    if (isFullyCorrect) {
+                        feedbackBox.className = 'feedback-box show correct-bg';
+                        document.getElementById('feedbackTitle').innerText = '✅ Jawaban Anda Tepat Sekali!';
+                    } else {
+                        feedbackBox.className = 'feedback-box show incorrect-bg';
+                        document.getElementById('feedbackTitle').innerText = '💡 Umpan Balik Evaluatif:';
+                    }
+                    document.getElementById('feedbackText').innerText = qData.explanation;
+                } else {
+                    feedbackBox.classList.remove('show');
+                }
+
+            } else {
+                optionsContainer.innerHTML = qData.options.map((opt, idx) => {
+                    let statusClass = '';
+                    if (userAns !== null) {
+                        if (idx === qData.answer) statusClass = 'correct';
+                        else if (idx === userAns) statusClass = 'incorrect';
+                    }
+                    return `
+                        <div class="quiz-option ${statusClass} ${userAns === idx ? 'selected' : ''}" onclick="selectQuizOption(${idx})">
+                            <span>${opt}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                const feedbackBox = document.getElementById('feedbackBox');
+                if (userAns !== null) {
+                    feedbackBox.classList.add('show');
+                    if (userAns === qData.answer) {
+                        feedbackBox.className = 'feedback-box show correct-bg';
+                        document.getElementById('feedbackTitle').innerText = '✅ Jawaban Anda Tepat!';
+                    } else {
+                        feedbackBox.className = 'feedback-box show incorrect-bg';
+                        document.getElementById('feedbackTitle').innerText = '💡 Umpan Balik Evaluatif:';
+                    }
+                    document.getElementById('feedbackText').innerText = qData.explanation;
+                } else {
+                    feedbackBox.classList.remove('show');
+                }
+            }
+
+            document.getElementById('prevBtn').disabled = state.currentQuizIndex === 0;
+            document.getElementById('nextBtn').innerText = state.currentQuizIndex === quizBank.length - 1 ? 'Selesaikan Kuis 🏁' : 'Selanjutnya ❯';
+        }
+
+        function selectQuizOption(index) {
+            if (state.quizAnswers[state.currentQuizIndex] !== null) return;
+            state.quizAnswers[state.currentQuizIndex] = index;
+
+            if (index === quizBank[state.currentQuizIndex].answer) {
+                addXP(20);
+            }
+
+            renderQuizQuestion();
+        }
+
+        function toggleMultiOption(index) {
+            let current = state.quizAnswers[state.currentQuizIndex];
+            if (current && current.confirmed) return;
+
+            let selected = Array.isArray(current) ? [...current] : [];
+            const pos = selected.indexOf(index);
+            if (pos > -1) {
+                selected.splice(pos, 1);
+            } else {
+                selected.push(index);
+            }
+            state.quizAnswers[state.currentQuizIndex] = selected;
+            renderQuizQuestion();
+        }
+
+        function confirmMultiAnswer() {
+            let selected = state.quizAnswers[state.currentQuizIndex];
+            if (!Array.isArray(selected) || selected.length === 0) {
+                alert('Pilihlah setidaknya satu opsi sebelum mengonfirmasi!');
+                return;
+            }
+            const qData = quizBank[state.currentQuizIndex];
+            selected.confirmed = true;
+            
+            const isFullyCorrect = selected.length === qData.answer.length && selected.every(val => qData.answer.includes(val));
+            if (isFullyCorrect) {
+                addXP(20);
+            }
+
+            renderQuizQuestion();
+        }
+
+        function navigateQuiz(dir) {
+            if(dir === 1 && state.currentQuizIndex === quizBank.length - 1) {
+                finishQuiz();
+                return;
+            }
+            state.currentQuizIndex += dir;
+            renderQuizQuestion();
+        }
+
+        function finishQuiz() {
+            let correctCount = 0;
+            let detailAnswers = [];
+
+            state.quizAnswers.forEach((ans, idx) => {
+                const qData = quizBank[idx];
+                let isCorrect = false;
+                let optLabel = '-';
+
+                if (qData.type === 'multiple') {
+                    const arr = Array.isArray(ans) ? ans : [];
+                    isCorrect = arr.length === qData.answer.length && arr.every(v => qData.answer.includes(v));
+                    optLabel = arr.length > 0 ? arr.map(a => String.fromCharCode(65 + a)).join('') : 'Tidak Diisi';
+                } else {
+                    isCorrect = ans === qData.answer;
+                    optLabel = ans !== null ? String.fromCharCode(65 + ans) : 'Tidak Diisi';
+                }
+
+                if (isCorrect) correctCount++;
+                detailAnswers.push(`S${idx+1}:${optLabel}(${isCorrect?'BENAR':'SALAH'})`);
+            });
+
+            const total = quizBank.length;
+            const wrongCount = total - correctCount;
+            state.score = Math.round((correctCount / total) * 100);
+
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'block';
+            document.getElementById('resultStudentName').innerText = state.studentName;
+            document.getElementById('finalScore').innerText = `${state.score} / 100`;
+
+            let guidance = "";
+            if(state.score >= 80) guidance = "Sangat Luar Biasa! Pemahaman analitis, kesadaran nilai, dan daya kritis Anda mengenai sejarah, literasi, serta kearifan lokal Gorontalo sangat solid.";
+            else if(state.score >= 60) guidance = "Bagus! Anda telah memahami sebagian besar konsep. Silakan tinjau kembali jurnal refleksi dan materi pendukung untuk memperkuat pemahaman.";
+            else guidance = "Tetap Semangat! Pelajari kembali materi sejarah, metode penelitian, serta konsep berpikir sejarah di modul ini.";
+            document.getElementById('resultGuidance').innerText = guidance;
+
+            // KIRIM DATA KE GOOGLE APPS SCRIPT DATABASE
+            sendResultToDatabase({
+                nama: state.studentName,
+                kelas: state.studentClass,
+                waktu: new Date().toLocaleString('id-ID'),
+                jumlahBenar: correctCount,
+                jumlahSalah: wrongCount,
+                nilai: state.score,
+                detailJawaban: detailAnswers.join('; ')
+            });
+        }
+
+        function sendResultToDatabase(payload) {
+            const gasUrl = localStorage.getItem('MPI_GAS_URL') || DEFAULT_GAS_URL;
+            const statusBox = document.getElementById('submitStatusBox');
+
+            statusBox.style.background = "rgba(245, 158, 11, 0.1)";
+            statusBox.style.color = "var(--accent-gold-light)";
+            statusBox.innerHTML = "⏳ Mengirimkan hasil tes Anda ke database Google Sheets Guru...";
+
+            fetch(gasUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                statusBox.style.background = "rgba(34, 197, 94, 0.15)";
+                statusBox.style.borderColor = "#22c55e";
+                statusBox.style.color = "#4ade80";
+                statusBox.innerHTML = "✅ Data evaluasi Anda berhasil disimpan ke Spreadsheet Guru!";
+            })
+            .catch(err => {
+                console.error("Gagal mengirim data:", err);
+                statusBox.style.background = "rgba(239, 68, 68, 0.15)";
+                statusBox.style.borderColor = "#ef4444";
+                statusBox.style.color = "#fca5a5";
+                statusBox.innerHTML = "⚠️ Terjadi kegagalan jaringan saat menyimpan data ke database. Namun nilai Anda telah tercatat lokal.";
+            });
+        }
+
+        function resetQuiz() {
+            state.studentName = '';
+            state.studentClass = '';
+            state.currentQuizIndex = 0;
+            state.quizAnswers = Array(quizBank.length).fill(null);
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentClass').value = '';
+            document.getElementById('studentFormContainer').style.display = 'block';
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'none';
+        }
+
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+</body>
+</html>
